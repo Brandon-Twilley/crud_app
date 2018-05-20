@@ -1,16 +1,6 @@
 <?php
 
 //Where we store our client posted information.  This persists even after you go to your first page.
-
-    //Client structure that stores all relevant information we're consuming from our HTML web page.
-class book_information{
-    public $title;
-    public $author;
-    public $publisher;
-    public $isbn;
-}
-
-$curl = curl_init();
 $mysqli = new mysqli("localhost", 'root', '', 'biags_store');
 
 

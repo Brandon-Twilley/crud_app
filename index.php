@@ -79,8 +79,8 @@ if(isset($_COOKIE['username']) && isset($_COOKIE['password'])){
 </head>
 <body>
         <form class="ui large form">
-            <div class="ui segment" style="margin: 3em">
-                <table class="ui striped table">
+            <div id="table-holder" class="ui segment" style="margin: 3em">
+                <table class="ui striped unstackable table">
                     <thead>
                         <tr>
                             <th>name</th>
@@ -135,6 +135,15 @@ if(isset($_COOKIE['username']) && isset($_COOKIE['password'])){
 <script>
 
     $(document).ready(function(){
+
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            console.log('is a device');
+            var cnt = $("#table-holder").contents();
+            $("#table-holder").replaceWith(cnt);
+        } else {
+            console.log('is not a device.');
+        }
+        
         <?php
 
         if($is_logged_in){
